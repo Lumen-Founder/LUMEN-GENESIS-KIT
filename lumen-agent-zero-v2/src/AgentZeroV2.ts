@@ -118,26 +118,26 @@ export class AgentZeroV2 {
   }
 
   /**
-   * [FIXED] Manual Polling Subscription
-   * 공용 RPC의 "filter not found" 에러를 피하기 위해, 수동으로 3초마다 로그를 긁어옵니다.
+* [FIXED] Manual Polling Subscription
+* To avoid the "filter not found" error on public RPCs, we manually poll for logs every 3 seconds.
    */
   async subscribe(topic: `0x${string}`, onEvent: (ev: ContextEvent) => Promise<void> | void): Promise<() => void> {
     const filter = this.kernel.filters.ContextWritten(topic);
     
-    // 현재 블록부터 시작
+    // Start from the current block
     let fromBlock = await this.provider.getBlockNumber();
 
     const timer = setInterval(async () => {
       try {
         const toBlock = await this.provider.getBlockNumber();
-        // 새 블록이 없으면 패스
+        // Skip if no new blocks
         if (toBlock <= fromBlock) return;
 
-        // fromBlock+1 ~ toBlock 사이의 로그 조회
+        // Query logs between fromBlock+1 and toBlock
         const logs = await this.kernel.queryFilter(filter, fromBlock + 1, toBlock);
 
         for (const log of logs) {
-          // Ethers v6는 queryFilter 결과를 자동으로 파싱해줍니다.
+          // Ethers v6 automatically parses queryFilter results.
           if (!('args' in log)) continue; 
 
           const ev: ContextEvent = {
@@ -151,12 +151,12 @@ export class AgentZeroV2 {
           };
           await onEvent(ev);
         }
-        // 읽은 데까지 포인터 이동
+        // Move pointer to the last read block
         fromBlock = toBlock;
       } catch (e) {
-        // RPC 에러가 나도 무시하고 다음 턴에 다시 시도 (죽지 않음)
+        // Ignore RPC errors and retry on the next turn (non-fatal)
       }
-    }, 3000); // 3초마다 실행
+    }, 3000); // Run every 3 seconds
 
     return () => clearInterval(timer);
   }

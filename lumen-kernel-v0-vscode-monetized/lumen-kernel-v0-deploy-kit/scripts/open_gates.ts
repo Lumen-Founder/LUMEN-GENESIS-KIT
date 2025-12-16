@@ -10,12 +10,12 @@ async function main() {
   const Kernel = await ethers.getContractAt("LumenKernelV0", KERNEL_ADDRESS);
 
   console.log("🔓 Opening Gates...");
-  // 1. 요청 게시판 공개
+  // 1. Make Request Board Public
   console.log("- Unlocking JOB_REQUEST...");
   let tx = await Kernel.setTopicPublicWrite(JOB_REQUEST, true);
   await tx.wait();
   
-  // 2. 결과 게시판 공개
+  // 2. Make Receipt Board Public
   console.log("- Unlocking JOB_RECEIPT...");
   tx = await Kernel.setTopicPublicWrite(JOB_RECEIPT, true);
   await tx.wait();
