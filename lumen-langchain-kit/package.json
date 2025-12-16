@@ -1,6 +1,6 @@
 {
   "name": "lumen-langchain-kit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "LangChain integration toolkit for LUMEN World Computer - Enable AI agents to interact with blockchain",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
