@@ -9,6 +9,18 @@ LUMEN GENESIS KIT is a comprehensive monorepo containing all the essential tools
 
 ---
 
+## 🌐 Deployed Contracts
+
+**LUMEN Kernel V0 on Base Mainnet:**
+
+| Contract | Address | Network |
+|----------|---------|---------|
+| **LumenKernelV0** | `0x52078D914CbccD78EE856b37b438818afaB3899c` | Base Mainnet (Chain ID: 8453) |
+
+🔗 **Verify on Blockscout**: [View Contract](https://base.blockscout.com/address/0x52078D914CbccD78EE856b37b438818afaB3899c)
+
+---
+
 ## 📦 What's Inside
 
 This monorepo contains four core modules:
@@ -65,6 +77,16 @@ cd lumen-langchain-kit && npm install && cd ..
 cd lumen-relay-monitor/lumen-relay-monitor && npm install && cd ../..
 ```
 
+### Quick Configuration
+
+Each module requires the LUMEN Kernel V0 address. Create a `.env` file in each module:
+
+```env
+KERNEL_ADDRESS=0x52078D914CbccD78EE856b37b438818afaB3899c
+BASE_RPC_URL=https://mainnet.base.org
+PRIVATE_KEY=your_private_key_here
+```
+
 ---
 
 ## 📚 Module Documentation
@@ -102,6 +124,17 @@ Navigate to `lumen-langchain-kit/` for AI integration tools.
 **NPM Installation:**
 ```bash
 npm install lumen-langchain-kit
+```
+
+**Quick Example:**
+```typescript
+import { LumenWriteTool } from 'lumen-langchain-kit';
+
+const lumenTool = new LumenWriteTool(
+  process.env.PRIVATE_KEY!,
+  "0x52078D914CbccD78EE856b37b438818afaB3899c",
+  "https://mainnet.base.org"
+);
 ```
 
 ### Relay Monitor

@@ -46,7 +46,7 @@ import { LumenWriteTool } from 'lumen-langchain-kit';
 // Initialize the tool
 const lumenTool = new LumenWriteTool(
   process.env.PRIVATE_KEY!,           // Your wallet private key
-  "0xKERNEL_ADDRESS",                 // LUMEN Kernel contract address
+  "0x52078D914CbccD78EE856b37b438818afaB3899c",  // LUMEN Kernel contract address
   "https://mainnet.base.org"          // Base Mainnet RPC
 );
 
@@ -89,7 +89,7 @@ Writes a permanent context record to the LUMEN World Computer.
 ```typescript
 const tool = new LumenWriteTool(
   "0x1234...",
-  "0xKERNEL_ADDRESS",
+  "0x52078D914CbccD78EE856b37b438818afaB3899c",
   "https://mainnet.base.org"
 );
 
@@ -142,7 +142,7 @@ Create a `.env` file:
 
 ```env
 PRIVATE_KEY=your_wallet_private_key_here
-KERNEL_ADDRESS=0xYourKernelAddress
+KERNEL_ADDRESS=0x52078D914CbccD78EE856b37b438818afaB3899c
 BASE_RPC_URL=https://mainnet.base.org
 ```
 
