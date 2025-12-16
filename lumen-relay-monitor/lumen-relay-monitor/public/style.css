@@ -1,0 +1,158 @@
+:root {
+  --bg: #0b0f14;
+  --panel: #0f1722;
+  --text: #e6edf3;
+  --muted: #9fb0c0;
+  --green: #37ff8b;
+  --border: rgba(255,255,255,0.08);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  background: radial-gradient(1200px 700px at 20% 0%, #0f2134 0%, var(--bg) 60%);
+  color: var(--text);
+}
+
+header {
+  padding: 18px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  background: rgba(11,15,20,0.65);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand { display: flex; gap: 12px; align-items: center; }
+.logo {
+  width: 38px; height: 38px; border-radius: 12px;
+  display: grid; place-items: center;
+  background: linear-gradient(180deg, rgba(55,255,139,0.25), rgba(55,255,139,0.05));
+  border: 1px solid rgba(55,255,139,0.25);
+  color: var(--green);
+  font-weight: 800;
+}
+
+.title { font-size: 16px; font-weight: 800; letter-spacing: 0.2px; }
+.subtitle { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+.stats { display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
+.stat {
+  border: 1px solid var(--border);
+  background: rgba(15,23,34,0.55);
+  border-radius: 12px;
+  padding: 8px 10px;
+  min-width: 84px;
+}
+.stat .k { font-size: 11px; color: var(--muted); }
+.stat .v { font-size: 14px; font-weight: 700; margin-top: 4px; }
+
+.controls {
+  padding: 14px 22px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border);
+}
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-size: 12px; color: var(--muted); }
+.field input {
+  width: 340px;
+  max-width: 92vw;
+  background: rgba(15,23,34,0.6);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 10px 12px;
+  outline: none;
+}
+.field.small input { width: 120px; }
+button {
+  border-radius: 12px;
+  padding: 10px 14px;
+  border: 1px solid rgba(55,255,139,0.25);
+  background: rgba(55,255,139,0.12);
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+}
+button:hover { background: rgba(55,255,139,0.16); }
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding: 14px 22px 22px;
+}
+@media (max-width: 1000px) {
+  main { grid-template-columns: 1fr; }
+}
+.panel {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(15,23,34,0.55);
+  overflow: hidden;
+}
+.panel-title {
+  padding: 12px 14px;
+  font-weight: 800;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stream {
+  height: 420px;
+  overflow: auto;
+  padding: 12px 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+}
+.line {
+  white-space: pre;
+  color: rgba(55,255,139,0.95);
+  margin: 0;
+  line-height: 1.35;
+}
+.line .muted { color: rgba(159,176,192,0.85); }
+
+.table {
+  height: 420px;
+  overflow: auto;
+  padding: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+}
+.row {
+  display: grid;
+  grid-template-columns: 120px 1fr 110px 110px;
+  gap: 10px;
+  padding: 10px 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.row:hover { background: rgba(255,255,255,0.03); }
+.h { color: var(--muted); font-size: 11px; padding: 10px; display: grid;
+  grid-template-columns: 120px 1fr 110px 110px; gap: 10px; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.badge { padding: 2px 6px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); display: inline-block; }
+a { color: var(--green); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+footer {
+  padding: 12px 22px 16px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.dot { opacity: 0.5; }
+code { background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 8px; }

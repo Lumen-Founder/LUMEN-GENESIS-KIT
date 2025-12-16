@@ -1,0 +1,30 @@
+{
+  "name": "lumen-agent-zero-v2",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Reference autonomous agent for LUMEN Kernel V0 (Global Context Bus) on Base Mainnet.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "pulse": "tsx src/heartbeat.ts",
+    "compile": "tsc -p tsconfig.json --noEmit",
+    "dev": "tsx src/run.ts",
+    "emit": "tsx src/run.ts --emit",
+    "listen": "tsx src/run.ts --listen",
+    "topics": "tsx scripts/print_topics.ts",
+    "format": "prettier -w .",
+    "lint": "eslint .",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "eslint": "^9.17.0",
+    "prettier": "^3.4.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

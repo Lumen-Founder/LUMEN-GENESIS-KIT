@@ -1,0 +1,7 @@
+node_modules
+dist
+.env
+deployments
+storage/*.json
+storage/*.log
+*.log

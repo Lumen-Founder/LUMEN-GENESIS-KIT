@@ -1,0 +1,29 @@
+{
+  "name": "lumen-kernel-v0-deploy-kit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "LUMEN Kernel V0 (World Computer) deployment kit for Base Mainnet",
+  "scripts": {
+    "clean": "rimraf artifacts cache typechain deployments",
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:base": "hardhat run scripts/deploy_base.ts --network base",
+    "deploy:base-sepolia": "hardhat run scripts/deploy_base.ts --network baseSepolia",
+    "verify:base": "hardhat verify --network base",
+    "lint": "eslint .",
+    "format": "prettier -w ."
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@typechain/ethers-v6": "^0.5.1",
+    "@typechain/hardhat": "^9.1.0",
+    "@types/node": "^22.10.2",
+    "dotenv": "^16.4.5",
+    "eslint": "^9.16.0",
+    "prettier": "^3.4.2",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typechain": "^8.3.2",
+    "typescript": "^5.7.2"
+  }
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LUMEN Live Status — Relay + Monitor</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">L</div>
+      <div>
+        <div class="title">LUMEN Live Status</div>
+        <div class="subtitle">Base Mainnet • Kernel V0 • Context Bus</div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="k">RPC</div><div class="v" id="rpcStatus">…</div></div>
+      <div class="stat"><div class="k">Block</div><div class="v" id="blockNum">…</div></div>
+      <div class="stat"><div class="k">Lag</div><div class="v" id="lag">…</div></div>
+      <div class="stat"><div class="k">Events</div><div class="v" id="eventCount">0</div></div>
+      <div class="stat"><div class="k">Authors</div><div class="v" id="authors">0</div></div>
+    </div>
+  </header>
+
+  <section class="controls">
+    <div class="field">
+      <label>Topic (0x…)</label>
+      <input id="topic" placeholder="bytes32 topic (exact match)" />
+    </div>
+    <div class="field">
+      <label>Author (0x…)</label>
+      <input id="author" placeholder="0xabc... (exact match)" />
+    </div>
+    <div class="field small">
+      <label>Limit</label>
+      <input id="limit" type="number" value="200" min="1" max="1000" />
+    </div>
+    <button id="apply">Apply</button>
+    <button id="clear">Clear</button>
+  </section>
+
+  <main>
+    <div class="panel">
+      <div class="panel-title">Live Stream</div>
+      <div id="stream" class="stream"></div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Recent Events</div>
+      <div id="table" class="table"></div>
+    </div>
+  </main>
+
+  <footer>
+    <span id="kernel"></span>
+    <span class="dot">•</span>
+    <span>Endpoints: <code>/health</code> <code>/events</code> <code>/stream</code></span>
+  </footer>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
