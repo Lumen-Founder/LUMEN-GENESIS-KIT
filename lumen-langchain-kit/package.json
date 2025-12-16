@@ -1,0 +1,55 @@
+{
+  "name": "lumen-langchain-kit",
+  "version": "1.0.0",
+  "description": "LangChain integration toolkit for LUMEN World Computer - Enable AI agents to interact with blockchain",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "ts-node src/test_ai.ts"
+  },
+  "keywords": [
+    "lumen",
+    "langchain",
+    "blockchain",
+    "ai",
+    "agent",
+    "web3",
+    "base",
+    "ethereum",
+    "world-computer"
+  ],
+  "author": "LUMEN Protocol",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lumen-Founder/LUMEN-GENESIS-KIT.git",
+    "directory": "lumen-langchain-kit"
+  },
+  "homepage": "https://github.com/Lumen-Founder/LUMEN-GENESIS-KIT/tree/main/lumen-langchain-kit",
+  "bugs": {
+    "url": "https://github.com/Lumen-Founder/LUMEN-GENESIS-KIT/issues"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "@langchain/core": "^0.3.0",
+    "ethers": "^6.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0"
+  },
+  "peerDependencies": {
+    "@langchain/core": ">=0.3.0",
+    "ethers": ">=6.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
