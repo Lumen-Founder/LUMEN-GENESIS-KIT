@@ -76,7 +76,7 @@ function updateStats() {
 }
 
 async function fetchHealth() {
-  const r = await fetch('/health');
+  const r = await fetch('/v0/status');
   const j = await r.json();
   rpcStatusEl.textContent = j.ok ? 'OK' : 'ERR';
   headBlock = j.latestBlock || 0;
@@ -96,7 +96,7 @@ function qs() {
 }
 
 async function loadEvents() {
-  const r = await fetch(`/events?${qs()}`);
+  const r = await fetch(`/v0/events?${qs()}`);
   const j = await r.json();
   events = j.events || [];
   authors = new Set(events.map(e => e.author.toLowerCase()));
@@ -105,7 +105,7 @@ async function loadEvents() {
 }
 
 function connectStream() {
-  const es = new EventSource(`/stream?${qs()}`);
+  const es = new EventSource(`/v0/stream?${qs()}`);
   es.addEventListener('context', (ev) => {
     const e = JSON.parse(ev.data);
     events.unshift(e);
