@@ -1,5 +1,7 @@
 # 🌟 LUMEN GENESIS KIT
 
+![LUMEN Live Status Dashboard](lumen-dashboard-demo.png)
+
 **The Complete Development Kit for Building on LUMEN World Computer**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
