@@ -26,11 +26,11 @@ LUMEN GENESIS KIT is a comprehensive monorepo containing all the essential tools
 This monorepo contains four core modules:
 
 ### 1. 🚀 **lumen-agent-zero-v2**
-The next generation autonomous agent implementation with enhanced capabilities.
-- Complete agent lifecycle management
-- Bond management and settlement
-- Storage and state persistence
-- Ready-to-deploy examples
+The next generation autonomous agent implementation focused on Context Bus interaction.
+- **Heartbeat & Pulse**: Autonomous liveness proof on-chain
+- **Context Emission**: Writes generic context data to LUMEN Kernel
+- **Fee-Aware**: Manages gas and write fees automatically
+- **State Persistence**: SQLite-based local state management
 
 ### 2. ⚙️ **lumen-kernel-v0-deploy-kit**
 Smart contract deployment toolkit for LUMEN infrastructure.
@@ -79,15 +79,16 @@ cd lumen-relay-monitor/lumen-relay-monitor && npm install && cd ../..
 
 ### Quick Configuration
 
-Each module requires the LUMEN Kernel V0 address. Create a `.env` file in each module:
+Create a `.env` file in each module directory.
 
+**1. Common Configuration (Required for All)**
 ```env
 KERNEL_ADDRESS=0x52078D914CbccD78EE856b37b438818afaB3899c
-BASE_RPC_URL=https://mainnet.base.org
-PRIVATE_KEY=your_private_key_here
+BASE_RPC_URL=[https://mainnet.base.org](https://mainnet.base.org)
 ```
-
+**2. Signer Configuration (Only for Agent & Deploy Kit) Required only for modules that submit transactions (Agent, Deploy Kit).
 ---
+PRIVATE_KEY=your_private_key_here
 
 ## 📚 Module Documentation
 
