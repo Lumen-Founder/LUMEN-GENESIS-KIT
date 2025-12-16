@@ -86,7 +86,7 @@ Create a `.env` file in each module directory.
 KERNEL_ADDRESS=0x52078D914CbccD78EE856b37b438818afaB3899c
 BASE_RPC_URL=[https://mainnet.base.org](https://mainnet.base.org)
 ```
-*2. Signer Configuration (Only for Agent & Deploy Kit) Required only for modules that submit transactions (Agent, Deploy Kit).
+2. Signer Configuration (Only for Agent & Deploy Kit) Required only for modules that submit transactions (Agent, Deploy Kit).
 ---
 PRIVATE_KEY=your_private_key_here
 ---
