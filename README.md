@@ -26,11 +26,11 @@ LUMEN GENESIS KIT is a comprehensive monorepo containing all the essential tools
 This monorepo contains four core modules:
 
 ### 1. 🚀 **lumen-agent-zero-v2**
-The next generation autonomous agent implementation with enhanced capabilities.
-- Complete agent lifecycle management
-- Bond management and settlement
-- Storage and state persistence
-- Ready-to-deploy examples
+The next generation autonomous agent implementation focused on Context Bus interaction.
+- **Heartbeat & Pulse**: Autonomous liveness proof on-chain
+- **Context Emission**: Writes generic context data to LUMEN Kernel
+- **Fee-Aware**: Manages gas and write fees automatically
+- **State Persistence**: SQLite-based local state management
 
 ### 2. ⚙️ **lumen-kernel-v0-deploy-kit**
 Smart contract deployment toolkit for LUMEN infrastructure.
@@ -79,11 +79,20 @@ cd lumen-relay-monitor/lumen-relay-monitor && npm install && cd ../..
 
 ### Quick Configuration
 
-Each module requires the LUMEN Kernel V0 address. Create a `.env` file in each module:
+Create a `.env` file in each module directory based on your needs.
+
+**1. Common Configuration (Required for All)**  
+*Used for reading data from the blockchain (Monitor, Agent, etc).*
 
 ```env
 KERNEL_ADDRESS=0x52078D914CbccD78EE856b37b438818afaB3899c
 BASE_RPC_URL=https://mainnet.base.org
+```
+
+**2. Signer Configuration (Only for Agent & Deploy Kit)**  
+*Required **only** for modules that submit transactions (write operations).*
+
+```env
 PRIVATE_KEY=your_private_key_here
 ```
 
@@ -96,10 +105,11 @@ PRIVATE_KEY=your_private_key_here
 Navigate to `lumen-agent-zero-v2/` for the complete autonomous agent implementation.
 
 **Key Features:**
-- Enhanced bond management
-- Improved settlement mechanisms
-- Persistent storage system
-- Production-ready architecture
+
+- **Autonomous Heartbeat**: Proves liveness to the network via periodic pulses.
+- **Context Bus Integration**: Emits verifiable context to the Kernel.
+- **Gas Management**: Optimized transaction handling for Base Mainnet.
+- **Local Database**: Persistent storage for agent state and memory.
 
 ### Deploy Kit
 
